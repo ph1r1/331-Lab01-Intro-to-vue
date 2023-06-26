@@ -30,6 +30,12 @@ const productDisplay = {
         >
           Add To Cart
         </button>
+        <button
+          class="button"
+          @click.prevent="removeCart"
+        >
+          Remove Cart
+        </button>
       </div>
       </div>
       `,
@@ -77,6 +83,9 @@ const productDisplay = {
     const addToCart = () => {
       emit("add-to-cart", variants.value[selectedVariant.value].id);
     };
+    const removeCart = () => {
+      emit("remove-cart");
+    };
     const title = computed(() => {
       return brand.value + " " + product.value;
     });
@@ -94,6 +103,7 @@ const productDisplay = {
       updateImage,
       updateVariant,
       shipping,
+      removeCart,
     };
   },
 };

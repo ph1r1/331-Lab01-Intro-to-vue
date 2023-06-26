@@ -6,12 +6,15 @@ const app = createApp({
     const premium = ref(false);
     const updateCart = (id) => {
       cart.value.push(id);
-      // console.log(cart.value);
+    };
+    const removeCart = () => {
+      cart.value = [];
     };
     return {
       cart,
       premium,
       updateCart,
+      removeCart,
     };
   },
 });
