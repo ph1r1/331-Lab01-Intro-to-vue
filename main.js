@@ -11,15 +11,20 @@ createApp({
       {
         id: 2234,
         color: "green",
+        image: "./assets/images/socks_green.jpg",
       },
       {
         id: 2235,
         color: "blue",
+        image: "./assets/images/socks_blue.jpg",
       },
     ]);
     const cart = ref(0);
     const addToCart = () => {
       cart.value += 1;
+    };
+    const updateImage = (variantImage) => {
+      image.value = variantImage;
     };
     return {
       product,
@@ -30,6 +35,7 @@ createApp({
       variants,
       cart,
       addToCart,
+      updateImage,
     };
   },
 }).mount("#app");
