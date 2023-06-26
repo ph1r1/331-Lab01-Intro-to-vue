@@ -14,7 +14,6 @@ const productDisplay = {
         <p v-else-if="inventory <= 10 && inventory > 0">Almost Out of Stock</p>
         <p v-else>Out of Stock</p>
         <p>Shipping: {{ shipping }}</p>
-        <product-details :details="details"></product-details>
         <div
           v-for="(variant, index) in variants"
           :key="variant.id"
@@ -37,7 +36,7 @@ const productDisplay = {
   props: {
     premium: Boolean,
   },
-  setup(props) {
+  setup(props, { emit }) {
     const shipping = computed(() => {
       if (props.premium) {
         return "Free";
@@ -77,7 +76,7 @@ const productDisplay = {
       return variants.value[selectedVariant.value].quantity;
     });
     const addToCart = () => {
-      cart.value += 1;
+      emit("add-to-cart", variants.value[selectedVariant.value].id);
     };
     const title = computed(() => {
       return brand.value + " " + product.value;
