@@ -20,9 +20,9 @@
         </div>
       </div>
       <div class="product-info">
-        <a :href="link">
           <h1>{{ product }}</h1>
-        </a>
+          <p v-if="inStock">In Stock</p>
+          <p v-else>Out of Stock</p>
       </div>
     </div>
 
