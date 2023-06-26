@@ -37,7 +37,14 @@
         >
           {{ variant.color }}
         </div>
-        <button class="button" @click.prevent="addToCart">Add To Cart</button>
+        <button
+          class="button"
+          :disabled="!inStock"
+          @click.prevent="addToCart"
+          :class="{disabledButton: !inStock}"
+        >
+          Add To Cart
+        </button>
       </div>
     </div>
 
