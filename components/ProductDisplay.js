@@ -30,13 +30,8 @@ const productDisplay = {
         >
           Add To Cart
         </button>
-        <button
-          class="button"
-          @click.prevent="removeCart"
-        >
-          Remove Cart
-        </button>
       </div>
+      <review-form @review-submitted="addReview"></review-form>
       </div>
       `,
   props: {
@@ -71,6 +66,11 @@ const productDisplay = {
       },
     ]);
     const selectedVariant = ref(0);
+    const reviews = ref([])
+    const addReview = (review) => {
+      reviews.value.push(review);
+      console.log(reviews.value)
+    }
     const updateVariant = (index) => {
       selectedVariant.value = index;
     };
@@ -82,9 +82,6 @@ const productDisplay = {
     });
     const addToCart = () => {
       emit("add-to-cart", variants.value[selectedVariant.value].id);
-    };
-    const removeCart = () => {
-      emit("remove-cart");
     };
     const title = computed(() => {
       return brand.value + " " + product.value;
@@ -103,7 +100,7 @@ const productDisplay = {
       updateImage,
       updateVariant,
       shipping,
-      removeCart,
+      addReview,
     };
   },
 };
