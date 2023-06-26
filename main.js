@@ -17,6 +17,20 @@ createApp({
         color: "blue",
       },
     ]);
+    const sizes = ref([
+      {
+        id: 1,
+        size: "S",
+      },
+      {
+        id: 2,
+        size: "M",
+      },
+      {
+        id: 3,
+        size: "L",
+      },
+    ]);
     return {
       product,
       image,
@@ -24,6 +38,7 @@ createApp({
       inventory,
       details,
       variants,
+      sizes,
     };
   },
 }).mount("#app");
