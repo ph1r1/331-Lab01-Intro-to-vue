@@ -42,6 +42,10 @@ createApp({
     const updateImage = (variantImage) => {
       image.value = variantImage;
     };
+    const onSale = ref(true);
+    const onSaleMsg = computed(() => {
+        return onSale && title.value + " is on sale";
+      });
     return {
       title,
       image,
@@ -52,8 +56,8 @@ createApp({
       cart,
       addToCart,
       updateImage,
-      selectedVariant,
       updateVariant,
+      onSaleMsg,
     };
   },
 }).mount("#app");
