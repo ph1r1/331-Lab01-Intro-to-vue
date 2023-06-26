@@ -26,9 +26,6 @@ createApp({
     const updateImage = (variantImage) => {
       image.value = variantImage;
     };
-    const changeStock = () => {
-      inStock.value = !inStock.value;
-    };
     return {
       product,
       image,
@@ -39,7 +36,6 @@ createApp({
       cart,
       addToCart,
       updateImage,
-      changeStock,
     };
   },
 }).mount("#app");
