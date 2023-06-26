@@ -65,7 +65,6 @@ const productDisplay = {
       },
     ]);
     const selectedVariant = ref(0);
-    const cart = ref(0);
     const updateVariant = (index) => {
       selectedVariant.value = index;
     };
