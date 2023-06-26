@@ -2,7 +2,7 @@ const { createApp, ref, computed } = Vue;
 
 createApp({
   setup() {
-    const product = ref("Socks");
+    const product = ref("Boots");
     return {
       product,
     };
